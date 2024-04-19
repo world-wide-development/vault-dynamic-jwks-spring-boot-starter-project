@@ -4,7 +4,7 @@ plugins {
     id("java")
     id("jvm-test-suite")
     id("jacoco-report-aggregation")
-    id("org.owasp.dependencycheck") version "9.0.9"
+    id("org.owasp.dependencycheck") version "9.1.0"
     id("io.spring.dependency-management") version "1.1.4"
 }
 
@@ -70,7 +70,7 @@ subprojects {
     apply(plugin = "org.owasp.dependencycheck")
     apply(plugin = "io.spring.dependency-management")
 
-    version = "0.1.1"
+    version = "0.1.2"
     group = "io.github.world-wide-development"
 
 }
