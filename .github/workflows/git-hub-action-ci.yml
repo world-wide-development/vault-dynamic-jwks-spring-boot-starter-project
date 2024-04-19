@@ -23,11 +23,11 @@ jobs:
       - run: ./gradlew test testCodeCoverageReport
       - uses: codecov/codecov-action@v4
         with:
-          directory: "./build/reports/jacoco/testCodeCoverageReport/"
-          files: "./testCodeCoverageReport.xml"
-          token: ${{ secrets.CODECOV_TOKEN }}
-          fail_ci_if_error: true
           verbose: true
+          fail_ci_if_error: true
+          token: ${{ secrets.CODECOV_TOKEN }}
+  #          files: "./testCodeCoverageReport.xml"
+  #          directory: "./build/reports/jacoco/testCodeCoverageReport/"
   integration-test:
     needs: unit-test
     runs-on: ubuntu-latest
@@ -43,8 +43,8 @@ jobs:
       - run: ./gradlew integrationTest integrationTestCodeCoverageReport
       - uses: codecov/codecov-action@v4
         with:
-          directory: "./build/reports/jacoco/integrationTestCodeCoverageReport/"
-          files: "./integrationTestCodeCoverageReport.xml"
-          token: ${{ secrets.CODECOV_TOKEN }}
-          fail_ci_if_error: true
           verbose: true
+          fail_ci_if_error: true
+          token: ${{ secrets.CODECOV_TOKEN }}
+#          files: "./integrationTestCodeCoverageReport.xml"
+#          directory: "./build/reports/jacoco/integrationTestCodeCoverageReport/"
