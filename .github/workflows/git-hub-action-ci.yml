@@ -6,7 +6,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: gradle/wrapper-validation-action@v3
+      - uses: gradle/actions/wrapper-validation@v3
   unit-test:
     needs: validation
     runs-on: ubuntu-latest
@@ -18,9 +18,8 @@ jobs:
           java-version: 21
           distribution: corretto
       - uses: docker/setup-buildx-action@v3
-      - uses: gradle/gradle-build-action@v3
-        with:
-          arguments: clean test testCodeCoverageReport
+      - uses: gradle/actions/setup-gradle@v3
+      - run: ./gradlew clean test testCodeCoverageReport
       - uses: codecov/codecov-action@v3
         with:
           fail_ci_if_error: true
@@ -37,9 +36,8 @@ jobs:
         with:
           java-version: 21
           distribution: corretto
-      - uses: gradle/gradle-build-action@v3
-        with:
-          arguments: clean integrationTest integrationTestCodeCoverageReport
+      - uses: gradle/actions/setup-gradle@v3
+      - run: ./gradlew clean integrationTest integrationTestCodeCoverageReport
       - uses: codecov/codecov-action@v3
         with:
           fail_ci_if_error: true
