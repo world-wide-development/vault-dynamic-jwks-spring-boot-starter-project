@@ -29,18 +29,6 @@ tasks.jar {
     enabled = false
 }
 
-dependencyCheck {
-    analyzers.apply {
-        nodeEnabled = false
-        nodeAudit.apply {
-            enabled = false
-        }
-    }
-    nvd.apply {
-        apiKey = "${property("nvdApiKey")}"
-    }
-}
-
 dependencies {
     jacocoAggregation(project(":dynamic-jwks"))
     jacocoAggregation(project(":dynamic-vault-jwks"))
@@ -79,6 +67,17 @@ allprojects {
 
     repositories {
         mavenCentral()
+    }
+
+    dependencyCheck {
+        analyzers.apply {
+            assemblyEnabled = false
+            nodeAudit.enabled = false
+            nodePackage.enabled = false
+        }
+        nvd.apply {
+            apiKey = "${property("nvdApiKey")}"
+        }
     }
 
     java {
