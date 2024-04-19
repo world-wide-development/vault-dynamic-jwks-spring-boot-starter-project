@@ -17,7 +17,7 @@ jobs:
         with:
           java-version: 21
           distribution: corretto
-      - uses: docker/setup-buildx-action@v3K
+      - uses: docker/setup-buildx-action@v3
       - uses: gradle/actions/setup-gradle@v3
       - run: ./gradlew clean test testCodeCoverageReport
       - uses: codecov/codecov-action@v4
