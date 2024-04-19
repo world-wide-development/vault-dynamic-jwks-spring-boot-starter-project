@@ -8,20 +8,20 @@ plugins {
     id("io.spring.dependency-management") version "1.1.4"
 }
 
-extra["slf4jVersion"] = "2.0.12"
+extra["slf4jVersion"] = "2.0.13"
 extra["snakeYamlVersion"] = "2.2"
 extra["jacksonVersion"] = "2.17.0"
-extra["springBootVersion"] = "3.2.4"
+extra["springBootVersion"] = "3.2.5"
 extra["nimbusJoseVersion"] = "9.37.3"
 extra["springRetryVersion"] = "2.0.5"
 extra["springVaultVersion"] = "3.1.1"
-extra["bouncyCastleVersion"] = "1.77"
-extra["equalsVerifierVersion"] = "3.15.8"
+extra["bouncyCastleVersion"] = "1.78"
+extra["equalsVerifierVersion"] = "3.16.1"
 extra["testcontainersVersion"] = "1.19.7"
-extra["springFrameworkVersion"] = "6.1.5"
+extra["springFrameworkVersion"] = "6.1.6"
 extra["commonsCompressVersion"] = "1.26.1"
-extra["springIntegrationVersion"] = "6.2.3"
-extra["springVaultStarterVersion"] = "4.1.0"
+extra["springIntegrationVersion"] = "6.2.4"
+extra["springVaultStarterVersion"] = "4.1.1"
 
 extra["nvdApiKey"] = findProperty("nvd.api.key") ?: System.getenv("NVD_API_KEY")
 
