@@ -4,7 +4,7 @@ plugins {
     id("java")
     id("jvm-test-suite")
     id("jacoco-report-aggregation")
-    id("org.owasp.dependencycheck") version "9.0.9"
+    id("org.owasp.dependencycheck") version "9.1.0"
     id("io.spring.dependency-management") version "1.1.4"
 }
 
@@ -27,18 +27,6 @@ extra["nvdApiKey"] = findProperty("nvd.api.key") ?: System.getenv("NVD_API_KEY")
 
 tasks.jar {
     enabled = false
-}
-
-dependencyCheck {
-    analyzers.apply {
-        nodeEnabled = false
-        nodeAudit.apply {
-            enabled = false
-        }
-    }
-    nvd.apply {
-        apiKey = "${property("nvdApiKey")}"
-    }
 }
 
 dependencies {
@@ -70,7 +58,7 @@ subprojects {
     apply(plugin = "org.owasp.dependencycheck")
     apply(plugin = "io.spring.dependency-management")
 
-    version = "0.1.1"
+    version = "0.1.2"
     group = "io.github.world-wide-development"
 
 }
@@ -79,6 +67,17 @@ allprojects {
 
     repositories {
         mavenCentral()
+    }
+
+    dependencyCheck {
+        analyzers.apply {
+            assemblyEnabled = false
+            nodeAudit.enabled = false
+            nodePackage.enabled = false
+        }
+        nvd.apply {
+            apiKey = "${property("nvdApiKey")}"
+        }
     }
 
     java {
