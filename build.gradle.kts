@@ -10,18 +10,18 @@ plugins {
 
 extra["slf4jVersion"] = "2.0.13"
 extra["snakeYamlVersion"] = "2.2"
-extra["jacksonVersion"] = "2.17.0"
-extra["springBootVersion"] = "3.2.5"
-extra["nimbusJoseVersion"] = "9.37.3"
-extra["springRetryVersion"] = "2.0.5"
+extra["jacksonVersion"] = "2.17.2"
+extra["nimbusJoseVersion"] = "9.40"
+extra["springBootVersion"] = "3.3.2"
+extra["springRetryVersion"] = "2.0.7"
 extra["springVaultVersion"] = "3.1.1"
-extra["bouncyCastleVersion"] = "1.78"
+extra["bouncyCastleVersion"] = "1.78.1"
 extra["equalsVerifierVersion"] = "3.16.1"
-extra["testcontainersVersion"] = "1.19.7"
-extra["springFrameworkVersion"] = "6.1.6"
-extra["commonsCompressVersion"] = "1.26.1"
-extra["springIntegrationVersion"] = "6.2.4"
-extra["springVaultStarterVersion"] = "4.1.1"
+extra["testcontainersVersion"] = "1.20.0"
+extra["springFrameworkVersion"] = "6.1.11"
+extra["commonsCompressVersion"] = "1.26.2"
+extra["springIntegrationVersion"] = "6.3.2"
+extra["springVaultStarterVersion"] = "4.1.3"
 
 extra["nvdApiKey"] = findProperty("nvd.api.key") ?: System.getenv("NVD_API_KEY")
 
