@@ -4,8 +4,8 @@ plugins {
     id("java")
     id("jvm-test-suite")
     id("jacoco-report-aggregation")
-    id("org.owasp.dependencycheck") version "9.1.0"
-    id("io.spring.dependency-management") version "1.1.4"
+    id("org.owasp.dependencycheck") version "10.0.3"
+    id("io.spring.dependency-management") version "1.1.5"
 }
 
 extra["slf4jVersion"] = "2.0.13"
