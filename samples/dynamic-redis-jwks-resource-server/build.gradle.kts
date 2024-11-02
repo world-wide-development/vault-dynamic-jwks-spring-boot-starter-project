@@ -1,5 +1,5 @@
 plugins {
-    id("org.springframework.boot") version "3.3.2"
+    id("org.springframework.boot") version "3.3.5"
 }
 
 val springCloudVersion = "2023.0.3"
