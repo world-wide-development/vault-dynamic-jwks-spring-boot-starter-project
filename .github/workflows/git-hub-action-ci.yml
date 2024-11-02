@@ -18,7 +18,7 @@ jobs:
           java-version: 21
           distribution: corretto
       - uses: docker/setup-buildx-action@v3
-      - uses: gradle/actions/setup-gradle@v3
+      - uses: gradle/actions/setup-gradle@v4
       - run: ./gradlew clean
       - run: ./gradlew test testCodeCoverageReport
       - uses: codecov/codecov-action@v4
@@ -38,7 +38,7 @@ jobs:
         with:
           java-version: 21
           distribution: corretto
-      - uses: gradle/actions/setup-gradle@v3
+      - uses: gradle/actions/setup-gradle@v4
       - run: ./gradlew clean
       - run: ./gradlew integrationTest integrationTestCodeCoverageReport
       - uses: codecov/codecov-action@v4
