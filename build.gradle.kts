@@ -4,23 +4,23 @@ plugins {
     id("java")
     id("jvm-test-suite")
     id("jacoco-report-aggregation")
-    id("org.owasp.dependencycheck") version "10.0.3"
-    id("io.spring.dependency-management") version "1.1.5"
+    id("org.owasp.dependencycheck") version "11.1.0"
+    id("io.spring.dependency-management") version "1.1.6"
 }
 
-extra["slf4jVersion"] = "2.0.13"
-extra["snakeYamlVersion"] = "2.2"
-extra["jacksonVersion"] = "2.17.2"
-extra["nimbusJoseVersion"] = "9.40"
-extra["springBootVersion"] = "3.3.2"
-extra["springRetryVersion"] = "2.0.7"
-extra["springVaultVersion"] = "3.1.1"
-extra["bouncyCastleVersion"] = "1.78.1"
-extra["equalsVerifierVersion"] = "3.16.1"
-extra["testcontainersVersion"] = "1.20.0"
-extra["springFrameworkVersion"] = "6.1.11"
-extra["commonsCompressVersion"] = "1.26.2"
-extra["springIntegrationVersion"] = "6.3.2"
+extra["slf4jVersion"] = "2.0.16"
+extra["snakeYamlVersion"] = "2.3"
+extra["jacksonVersion"] = "2.18.1"
+extra["nimbusJoseVersion"] = "9.42"
+extra["springBootVersion"] = "3.3.5"
+extra["springVaultVersion"] = "3.1.2"
+extra["bouncyCastleVersion"] = "1.79"
+extra["springRetryVersion"] = "2.0.10"
+extra["equalsVerifierVersion"] = "3.17.1"
+extra["testcontainersVersion"] = "1.20.3"
+extra["springFrameworkVersion"] = "6.1.14"
+extra["commonsCompressVersion"] = "1.27.1"
+extra["springIntegrationVersion"] = "6.3.5"
 extra["springVaultStarterVersion"] = "4.1.3"
 
 extra["nvdApiKey"] = findProperty("nvd.api.key") ?: System.getenv("NVD_API_KEY")
@@ -93,13 +93,17 @@ allprojects {
             dependency("com.nimbusds:nimbus-jose-jwt:${property("nimbusJoseVersion")}")
             dependency("org.testcontainers:vault:${property("testcontainersVersion")}")
             dependency("org.bouncycastle:bcpkix-jdk18on:${property("bouncyCastleVersion")}")
+            dependency("org.springframework:spring-aop:${property("springFrameworkVersion")}")
             dependency("org.springframework:spring-web:${property("springFrameworkVersion")}")
             dependency("org.springframework:spring-core:${property("springFrameworkVersion")}")
             dependency("org.testcontainers:junit-jupiter:${property("testcontainersVersion")}")
+            dependency("com.fasterxml.jackson.core:jackson-core:${property("jacksonVersion")}")
+            dependency("org.springframework:spring-context:${property("springFrameworkVersion")}")
             dependency("org.springframework.retry:spring-retry:${property("springRetryVersion")}")
             dependency("org.apache.commons:commons-compress:${property("commonsCompressVersion")}")
             dependency("com.fasterxml.jackson.core:jackson-databind:${property("jacksonVersion")}")
             dependency("nl.jqno.equalsverifier:equalsverifier:${property("equalsVerifierVersion")}")
+            dependency("org.springframework:spring-expression:${property("springFrameworkVersion")}")
             dependency("org.springframework.data:spring-data-redis:${property("springBootVersion")}")
             dependency("com.fasterxml.jackson.core:jackson-annotations:${property("jacksonVersion")}")
             dependency("org.springframework.vault:spring-vault-core:${property("springVaultVersion")}")
@@ -114,7 +118,6 @@ allprojects {
             dependency("org.springframework.integration:spring-integration-redis:${property("springIntegrationVersion")}")
             dependency("org.springframework.cloud:spring-cloud-starter-vault-config:${property("springVaultStarterVersion")}")
         }
-
     }
 
 }
