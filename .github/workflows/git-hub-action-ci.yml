@@ -28,7 +28,7 @@ jobs:
           fail_ci_if_error: true
           token: ${{ secrets.CODECOV_TOKEN }}
           files: "./testCodeCoverageReport.xml"
-  #          directory: "./build/reports/jacoco/testCodeCoverageReport"
+          directory: "./build/reports/jacoco/testCodeCoverageReport/"
   integration-test:
     needs: unit-test
     runs-on: ubuntu-latest
@@ -49,4 +49,4 @@ jobs:
           fail_ci_if_error: true
           token: ${{ secrets.CODECOV_TOKEN }}
           files: "./integrationTestCodeCoverageReport.xml"
-#          directory: "./build/reports/jacoco/integrationTestCodeCoverageReport"
+          directory: "./build/reports/jacoco/integrationTestCodeCoverageReport/"
