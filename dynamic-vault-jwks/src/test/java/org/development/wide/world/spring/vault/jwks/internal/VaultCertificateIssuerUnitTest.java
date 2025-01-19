@@ -19,7 +19,6 @@ import org.springframework.vault.support.VaultCertificateResponse;
 import java.time.Duration;
 
 @ExtendWith({MockitoExtension.class})
-@SuppressWarnings({"ResultOfMethodCallIgnored"})
 class VaultCertificateIssuerUnitTest extends BaseUnitTest {
 
     @Mock
@@ -33,7 +32,7 @@ class VaultCertificateIssuerUnitTest extends BaseUnitTest {
     @Mock
     VaultCertificateResponse vaultCertificateResponse;
     @Spy
-    VaultPkiInternalProperties properties = VaultPkiInternalProperties.builder()
+    final VaultPkiInternalProperties properties = VaultPkiInternalProperties.builder()
             .certificateCommonName("given-certificate-common-name")
             .certificateTtl(Duration.ofDays(3))
             .roleName("given-role-name")

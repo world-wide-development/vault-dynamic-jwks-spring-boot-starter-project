@@ -23,17 +23,17 @@ import java.time.Duration;
 @ExtendWith({MockitoExtension.class})
 class RetryableRedisJwksCertificateRotatorUnitTest extends BaseUnitTest {
 
-    RotationRetryInternalProperties rotationRetryInternalProperties = RotationRetryInternalProperties.builder()
+    final RotationRetryInternalProperties rotationRetryInternalProperties = RotationRetryInternalProperties.builder()
             .fixedBackoff(Duration.ofMinutes(3))
             .maxAttempts(1)
             .build();
-    CertificateRotationInternalProperties rotationProperties = CertificateRotationInternalProperties.builder()
+    final CertificateRotationInternalProperties rotationProperties = CertificateRotationInternalProperties.builder()
             .retry(rotationRetryInternalProperties)
             .rotateBefore(Duration.ofMinutes(3))
             .build();
     @Spy
     @SuppressWarnings({"unused"})
-    DynamicRedisJwksInternalProperties properties = DynamicRedisJwksInternalProperties.builder()
+    final DynamicRedisJwksInternalProperties properties = DynamicRedisJwksInternalProperties.builder()
             .kv(RedisKvInternalProperties.builder().certificateKey("given-certificate-key").build())
             .certificateRotation(rotationProperties)
             .build();

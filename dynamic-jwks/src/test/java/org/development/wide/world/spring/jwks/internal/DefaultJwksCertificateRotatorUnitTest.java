@@ -27,17 +27,17 @@ class DefaultJwksCertificateRotatorUnitTest extends BaseUnitTest {
     @Mock
     CertificateRepository certificateRepository;
     @Spy
-    JwkSetConverter jwkSetConverter = new JwkSetConverter();
+    final JwkSetConverter jwkSetConverter = new JwkSetConverter();
     @Spy
-    CertificateService certificateService = new DefaultCertificateService();
+    final CertificateService certificateService = new DefaultCertificateService();
     @Spy
-    BCCertificateInternalProperties certificateProperties = BCCertificateInternalProperties.builder()
+    final BCCertificateInternalProperties certificateProperties = BCCertificateInternalProperties.builder()
             .certificateTtl(Duration.ofDays(30))
             .subject("Given Subject")
             .issuer("Given Issuer")
             .build();
     @Spy
-    CertificateIssuer certificateIssuer = new BouncyCastleCertificateIssuer(certificateService, certificateProperties);
+    final CertificateIssuer certificateIssuer = new BouncyCastleCertificateIssuer(certificateService, certificateProperties);
 
     @InjectMocks
     DefaultJwksCertificateRotator certificateRotator;

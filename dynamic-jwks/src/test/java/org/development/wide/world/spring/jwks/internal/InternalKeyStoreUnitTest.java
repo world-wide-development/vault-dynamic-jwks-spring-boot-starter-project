@@ -25,9 +25,9 @@ class InternalKeyStoreUnitTest extends BaseUnitTest {
     @Mock
     X509Certificate certificate;
     @Spy
-    KeyStore keyStore = KeyStoreUtils.getDefaultInstance();
+    final KeyStore keyStore = KeyStoreUtils.getDefaultInstance();
     @Spy
-    KeyStoreInternalProperties properties = KeyStoreInternalProperties.builder()
+    final KeyStoreInternalProperties properties = KeyStoreInternalProperties.builder()
             .password("given-password")
             .alias("given-alias")
             .build();
@@ -35,8 +35,8 @@ class InternalKeyStoreUnitTest extends BaseUnitTest {
     @InjectMocks
     InternalKeyStore internalKeyStore;
 
-    String alias = properties.alias();
-    char[] password = "given-password".toCharArray();
+    final String alias = properties.alias();
+    final char[] password = "given-password".toCharArray();
 
     @Test
     void testInstantiationWithDefaultKeyStore() {
