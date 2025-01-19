@@ -21,13 +21,14 @@ jobs:
       - uses: gradle/actions/setup-gradle@v4
       - run: ./gradlew clean
       - run: ./gradlew test testCodeCoverageReport
-      - uses: codecov/codecov-action@v5
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v5
         with:
           verbose: true
           fail_ci_if_error: true
           token: ${{ secrets.CODECOV_TOKEN }}
-          #          files: "testCodeCoverageReport.xml"
-          directory: "./build/reports/jacoco/testCodeCoverageReport"
+          files: "./testCodeCoverageReport.xml"
+  #          directory: "./build/reports/jacoco/testCodeCoverageReport"
   integration-test:
     needs: unit-test
     runs-on: ubuntu-latest
@@ -41,10 +42,11 @@ jobs:
       - uses: gradle/actions/setup-gradle@v4
       - run: ./gradlew clean
       - run: ./gradlew integrationTest integrationTestCodeCoverageReport
-      - uses: codecov/codecov-action@v5
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v5
         with:
           verbose: true
           fail_ci_if_error: true
           token: ${{ secrets.CODECOV_TOKEN }}
-          #          files: "integrationTestCodeCoverageReport.xml"
-          directory: "./build/reports/jacoco/integrationTestCodeCoverageReport"
+          files: "./integrationTestCodeCoverageReport.xml"
+#          directory: "./build/reports/jacoco/integrationTestCodeCoverageReport"
