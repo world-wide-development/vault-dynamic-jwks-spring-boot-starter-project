@@ -1,8 +1,8 @@
 plugins {
-    id("org.springframework.boot") version "3.3.5"
+    id("org.springframework.boot") version "3.4.1"
 }
 
-val springCloudVersion = "2023.0.3"
+val springCloudVersion = "2024.0.0"
 
 tasks.getByName("dependencyCheckAnalyze") {
     enabled = false
