@@ -19,13 +19,16 @@ jobs:
           distribution: corretto
       - uses: docker/setup-buildx-action@v3
       - uses: gradle/actions/setup-gradle@v4
-      - run: ./gradlew clean test testCodeCoverageReport
-      - uses: codecov/codecov-action@v3
+      - run: ./gradlew clean
+      - run: ./gradlew test testCodeCoverageReport
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v5
         with:
-          fail_ci_if_error: true
+          directory: "./build/reports/jacoco/testCodeCoverageReport/"
+          files: "./testCodeCoverageReport.xml"
           token: ${{ secrets.CODECOV_TOKEN }}
-          files: "testCodeCoverageReport.xml"
-          directory: "./build/reports/jacoco/testCodeCoverageReport"
+          fail_ci_if_error: true
+          verbose: true
   integration-test:
     needs: unit-test
     runs-on: ubuntu-latest
@@ -37,10 +40,13 @@ jobs:
           java-version: 21
           distribution: corretto
       - uses: gradle/actions/setup-gradle@v4
-      - run: ./gradlew clean integrationTest integrationTestCodeCoverageReport
-      - uses: codecov/codecov-action@v3
+      - run: ./gradlew clean
+      - run: ./gradlew integrationTest integrationTestCodeCoverageReport
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v5
         with:
-          fail_ci_if_error: true
+          directory: "./build/reports/jacoco/integrationTestCodeCoverageReport/"
+          files: "./integrationTestCodeCoverageReport.xml"
           token: ${{ secrets.CODECOV_TOKEN }}
-          files: "integrationTestCodeCoverageReport.xml"
-          directory: "./build/reports/jacoco/integrationTestCodeCoverageReport"
+          fail_ci_if_error: true
+          verbose: true
