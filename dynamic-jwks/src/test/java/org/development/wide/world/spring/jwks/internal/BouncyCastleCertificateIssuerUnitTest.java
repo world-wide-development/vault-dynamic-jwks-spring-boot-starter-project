@@ -19,9 +19,9 @@ import java.time.Duration;
 class BouncyCastleCertificateIssuerUnitTest extends BaseUnitTest {
 
     @Spy
-    CertificateService certificateService = new DefaultCertificateService();
+    final CertificateService certificateService = new DefaultCertificateService();
     @Spy
-    BCCertificateInternalProperties certificateProperties = BCCertificateInternalProperties.builder()
+    final BCCertificateInternalProperties certificateProperties = BCCertificateInternalProperties.builder()
             .certificateTtl(Duration.ofMinutes(1))
             .subject("TestSubject")
             .issuer("TestIssuer")

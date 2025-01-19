@@ -38,8 +38,8 @@ class CompareVersionedKeyStoreSourceAndSetCallbackUnitTest extends BaseUnitTest 
     @Mock
     ValueOperations<String, VersionedKeyStoreSource> valueOperations;
 
-    Integer version = 3;
-    String key = "given-key";
+    final Integer version = 3;
+    final String key = "given-key";
 
     CompareVersionedKeyStoreSourceAndSetCallback callback;
 
