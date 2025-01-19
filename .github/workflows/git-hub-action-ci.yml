@@ -6,7 +6,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: gradle/actions/wrapper-validation@v3
+      - uses: gradle/actions/wrapper-validation@v4
   unit-test:
     needs: validation
     runs-on: ubuntu-latest
@@ -26,8 +26,8 @@ jobs:
           verbose: true
           fail_ci_if_error: true
           token: ${{ secrets.CODECOV_TOKEN }}
-          files: "./testCodeCoverageReport.xml"
-          directory: "./build/reports/jacoco/testCodeCoverageReport/"
+          files: "testCodeCoverageReport.xml"
+          directory: "./build/reports/jacoco/testCodeCoverageReport"
   integration-test:
     needs: unit-test
     runs-on: ubuntu-latest
@@ -46,5 +46,5 @@ jobs:
           verbose: true
           fail_ci_if_error: true
           token: ${{ secrets.CODECOV_TOKEN }}
-          files: "./integrationTestCodeCoverageReport.xml"
-          directory: "./build/reports/jacoco/integrationTestCodeCoverageReport/"
+          files: "integrationTestCodeCoverageReport.xml"
+          directory: "./build/reports/jacoco/integrationTestCodeCoverageReport"
